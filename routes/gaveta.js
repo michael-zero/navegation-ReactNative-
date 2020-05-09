@@ -12,7 +12,7 @@ export default function Gaveta(){
     return(
         <NavigationContainer>
         <Drawer.Navigator initialRouteName="Pilha">
-          <Drawer.Screen name="Pilha" component={Pilha} />
+          <Drawer.Screen name="Lista" component={Pilha} />
           <Drawer.Screen name="Contato" component={PilhaContato}/>
         </Drawer.Navigator>
       </NavigationContainer>

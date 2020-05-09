@@ -7,16 +7,19 @@ import Header from '../shared/header'
 const Pilha = createStackNavigator();
 
 export default function PilhaContato(){
+
+    
     return(
         <Pilha.Navigator>
-            <Pilha.Screen name="Gamezone" component={Contato}
+            <Pilha.Screen name="Contato" component={Contato}
             options={({navigation}) => {
                 return{
-                    headerTitle: () => <Header navigation={navigation}/>,
+                    headerTitle: () => <Header contato={'Contato'} navigation={navigation}/>,
                     headerTitleAlign: 'center',
                     headerStyle:{
-                        backgroundColor: '#f4511e'
-                    }   
+                        backgroundColor: '#fff'
+                    } ,
+                    
               }
               }}/>
         </Pilha.Navigator>

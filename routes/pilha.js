@@ -19,10 +19,10 @@ export default function Pilha(){
           
         options={({navigation}) => {
           return{
-              headerTitle: () => <Header navigation={navigation}/>
+              headerTitle: () => <Header contato={'Filmes'} navigation={navigation}/>
               ,headerTitleAlign: 'center',
               headerStyle: {
-                backgroundColor: '#f4511e'
+                backgroundColor: '#fff',
               }  
         }
         }}/>
