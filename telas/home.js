@@ -4,6 +4,7 @@ import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import Card from '../shared/card'
 import {MaterialIcons} from '@expo/vector-icons'
 import ReviewForm from './reviewForm'
+import { FontAwesome } from '@expo/vector-icons'; 
 
 function HomeScreen({navigation}) {
     
@@ -21,6 +22,12 @@ function HomeScreen({navigation}) {
       return [filme, ...filmesAtuais];
     });
     setModalOpen(false);
+  }
+
+  const remFilme = (key) => {
+    setFilmes((prevFilmes) => {
+      return prevFilmes.filter(filme => filme.key != key);
+    })
   }
 
   return (
@@ -51,11 +58,23 @@ function HomeScreen({navigation}) {
           <FlatList
           data={filmes}
           renderItem={({item}) => (
+         
+            <View style={{flex: 1, flexDirection: 'row'}}>
+            
+            <TouchableOpacity onPress={() => remFilme(item.key)}>
+            <FontAwesome name="remove" size={24} color="black" style={{marginRight: 10, marginTop: 13, opacity: 0.5}} />
+            </TouchableOpacity>
+          
+          
            <TouchableOpacity onPress={() => navigation.navigate('Sobre', item)}>
-              <Card>
+            <Card>
                <Text>{item.nome}</Text>
-              </Card>
+            </Card> 
            </TouchableOpacity>
+               
+         
+           </View>
+
           )}
           />
        </View>

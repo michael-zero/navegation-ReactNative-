@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { StyleSheet, ImageBackground } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-
+import {Dimensions} from 'react-native'
 
 import Home from '../telas/home'
 import Sobre from '../telas/sobre'
@@ -27,13 +27,34 @@ export default function Pilha(){
         }
         }}/>
 
-        <Stack.Screen name='Sobre' component={Sobre}></Stack.Screen>
+        <Stack.Screen name='Sobre' component={Sobre} options={
+         {
+          
+           headerBackground: () =>  <ImageBackground source={require('../assets/game_bg.png') } style={styles.header}></ImageBackground>,
+           
+         }
+        }>
+
+        </Stack.Screen>
 
       </Stack.Navigator>
     // </NavigationContainer>
     )
 }
 
+const styles = StyleSheet.create({
+  header: {
+    marginTop: 25,
+    height: 50,
+    width: Dimensions.get('screen').width,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'cornsilk',
+    
+    
+}
+})
 
 // options={({navigation}) => {
 //   return{
